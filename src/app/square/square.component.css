@@ -1,6 +1,5 @@
 .square {
-    height: 50px;
-    width: 50px;
-    background-color: #555;
-    border-style: solid;    
+    width: 20px;
+    height: 20px;
+    border: solid #000 1px;    
   }

@@ -1,3 +1,11 @@
-<div class="chessBoard" *ngFor="let n of nCols">
-  <square></square>
-</div>
+<table class="chessBoard"> 
+  
+  <tr class="row" *ngFor="let r of nRows">
+    
+    <td class="col" *ngFor="let c of nCols">
+      <square></square>
+    </td>
+  
+  </tr>
+
+</table>
