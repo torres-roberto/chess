@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChessBoardComponent implements OnInit {
 
-  nCols : number[];
-  nRows : number[];
+  nCols : string[];
+  nRows : string[];
   
   constructor() { }
 
   ngOnInit() {
-    this.nCols = [1,2,3,4,5,6,7,8];
-    this.nRows = [1,2,3,4,5,6,7,8];
+    this.nCols = ['a','b','c','d','e','f','g','h'];
+    this.nRows = ['1','2','3','4','5','6','7','8'];
   }
 
 }
