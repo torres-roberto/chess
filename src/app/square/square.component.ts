@@ -6,10 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
+  @Input() id: string;
 
-  constructor() { }
+  constructor() { }  
 
   ngOnInit() {
+    console.log(`Chess square ${this.id} was created`);    
+  }
+
+  clickedSquare() {
+    console.log(`User clicked on chess square ${this.id}`)
   }
 
 }
