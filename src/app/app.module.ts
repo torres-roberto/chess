@@ -4,14 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { ChessBoardComponent } from './chess-board/chess-board.component';
-import { PawnComponent } from './pawn/pawn.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    ChessBoardComponent,
-    PawnComponent
+    ChessBoardComponent    
   ],
   imports: [
     BrowserModule

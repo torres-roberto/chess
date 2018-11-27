@@ -1,11 +1,14 @@
 class Pawn implements ChessPiece {
+    image = '../../../../assets/img/pawn-white.png';
+
     constructor(currentPosition: ChessPosition) {
-        this.currentPosition = currentPosition;        
+        console.log(`Pawn was created`);
+        this.currentPosition = currentPosition;
     }
 
-    currentPosition: ChessPosition;    
-    
+    currentPosition: ChessPosition;
+
     makeMove(position: ChessPosition) {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 }
