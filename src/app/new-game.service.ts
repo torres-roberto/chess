@@ -4,11 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class NewGameService {
-
   constructor() { }
 
-  getInitialPiece (chessPos: ChessPosition): ChessPiece  {
-    console.log('here');
-    return null;
+  getInitialPiece (chessPos: string): string  {
+    if (this.IsPawn(chessPos)) {
+      return 'pawn';
+    }
+
+    return '';
+  }
+
+  private IsPawn (chessPos: string): boolean {
+    return chessPos[1] === '2' || chessPos[1] === '7';
   }
 }

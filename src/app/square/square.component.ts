@@ -10,7 +10,7 @@ import { NewGameService } from '../new-game.service';
 export class SquareComponent implements OnInit {
   @Input()
   id: string;
-  squareClass = 'square';
+  squareClass = 'square ';
   chessPiece: ChessPiece;
 
 
@@ -19,9 +19,7 @@ export class SquareComponent implements OnInit {
 
   ngOnInit() {
     console.log(`Id is ${this.id}`);
-    this.squareClass = 'square';
-    //console.log(ChessPosition[this.id]);
-    //this.chessPiece = this.newGameService.getInitialPiece(ChessPosition[this.id]);
+    this.squareClass += this.newGameService.getInitialPiece(this.id);
   }
 
   clickedSquare() {
