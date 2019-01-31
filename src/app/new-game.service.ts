@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pawn } from './chessPieces/Pawn';
+import { DefaultPiece } from './chessPieces/DefaultPiece';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,12 @@ export class NewGameService {
       return new Pawn(chessPos);      
     }
 
-    return null;
+    return new DefaultPiece(chessPos);
   }
 
   private IsPawn (chessPos: string): boolean {
     return chessPos[1] === '2' || chessPos[1] === '7';
   }
+
+  
 }

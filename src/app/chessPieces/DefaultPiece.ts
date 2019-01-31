@@ -1,6 +1,6 @@
-export class Pawn implements ChessPiece {
-    image = '../../../../assets/img/pawn-white.png';
-    name = 'pawn';
+export class DefaultPiece implements ChessPiece {
+    image = '';
+    name = 'empty';
 
     constructor(currentPosition: string) { 
         this.currentPosition = currentPosition;

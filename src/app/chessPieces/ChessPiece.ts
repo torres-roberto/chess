@@ -1,7 +1,5 @@
 interface ChessPiece {
     image: string;
-    currentPosition: string;
-    canMove(): boolean;
-    makeMove(position: ChessPosition);
+    currentPosition: string;    
     name: string;
 }

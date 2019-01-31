@@ -3,9 +3,11 @@
   <tr class="row" *ngFor="let r of nRows">
 
     <td class="col" *ngFor="let c of nCols">
-        <square-selector id="{{c + r}}"  ></square-selector>
+        <chess-square #chessSquare id="{{c + r}}" (click)="clickedSquare(chessSquare)"></chess-square>
     </td>
 
   </tr>
 
 </table>
+
+<p>{{message}}</p>

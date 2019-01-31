@@ -4,31 +4,26 @@ import { Referee } from '../referee';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'square-selector',
+  selector: 'chess-square',
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
-  @Input()
-  id: string;
-  squareClass = 'square ';
+  @Input() id: string;
+  @Input() piece: string[] = ['square'];
+
   chessPiece: ChessPiece;
   selected: boolean = false;
-
 
   constructor(private newGameService: NewGameService) {
   }
 
-  ngOnInit() {
-    console.log(`Id is ${this.id}`);    
-    this.chessPiece = this.newGameService.getInitialPiece(this.id);
-
-    if (this.chessPiece)
-      this.squareClass += this.chessPiece.name
+  ngOnInit() {    
+    this.chessPiece = this.newGameService.getInitialPiece(this.id);     
+    this.piece.push(this.chessPiece.name);
   }
 
   clickedSquare() {
-    console.log(`User clicked on chess square ${this.id}`);
-    this.squareClass += ' selected';
+    console.log(`User clicked on chess square ${this.id}, ${this.piece}`);
   }
 }
