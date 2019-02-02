@@ -8,8 +8,7 @@ import { SquareComponent } from '../square/square.component';
   styleUrls: ['./chess-board.component.css']
 })
 export class ChessBoardComponent implements OnInit {  
-  message: string = "Hello world!";
-  selectedSquare: ChessPosition;
+  selectedSquare: ChessPosition;  
 
   nCols: string[];
   nRows: string[];
@@ -39,11 +38,5 @@ export class ChessBoardComponent implements OnInit {
       console.log(`Invalid chess square was chosen square id [${chessSquare.id}]`);
       this.selectedSquare = null;
     }
-    
-    // for(let p in chessSquare) {
-    //   if (chessSquare.hasOwnProperty(p)) {
-    //     console.log(`${p}: ${chessSquare[p]}`);
-    //   }
-    // }
   }
 }

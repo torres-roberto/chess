@@ -20,7 +20,8 @@ export class SquareComponent implements OnInit {
 
   ngOnInit() {    
     this.chessPiece = this.newGameService.getInitialPiece(this.id);     
-    this.piece.push(this.chessPiece.name);
+    this.piece.push(this.chessPiece.name)
+    this.piece.push(this.chessPiece.color);
   }
 
   clickedSquare() {

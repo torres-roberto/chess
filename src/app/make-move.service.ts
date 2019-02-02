@@ -8,8 +8,4 @@ import { Pawn } from './chessPieces/Pawn';
 export class MakeMoveService {
 
   constructor() { }
-
-  Move(from: string, to: string): ChessPiece {
-    return new Pawn(to);
-  }
 }

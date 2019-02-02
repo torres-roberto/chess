@@ -1,19 +1,15 @@
+@import "../chessPieces/Types/chessPieceTypes.css";
+
 .square {
     width: 30px;
     height: 30px;
     border: solid black 1px;
 }
 
-.pawn {
-  background-image: url('../../assets/img/pawn-white.png');
-  background-size: 30px 30px;
+.black {
+  filter: invert(100%)
 }
 
 .selected {
   border: dashed red 1px;
 }
-
-/* chess-square[piece="pawn"] {
-  background-image: url('../../assets/img/pawn-white.png');
-  background-size: 30px 30px;
-} */

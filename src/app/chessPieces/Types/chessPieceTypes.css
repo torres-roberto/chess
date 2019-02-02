@@ -1,0 +1,31 @@
+
+.pawn {
+    background-image: url('../../assets/img/pawn.png');
+    background-size: 30px 30px;
+  }
+
+.knight {
+    background-image: url('../../assets/img/knight.png');
+    background-size: 30px 30px;
+}
+
+.bishop {
+    background-image: url('../../assets/img/bishop.png');
+    background-size: 30px 30px;
+}
+
+.rook {
+    background-image: url('../../assets/img/rook.png');
+    background-size: 30px 30px;
+}
+
+.queen {
+    background-image: url('../../assets/img/queen.png');
+    background-size: 30px 30px;
+}
+
+.king {
+    background-image: url('../../assets/img/king.png');
+    background-size: 30px 30px;
+}
+      
