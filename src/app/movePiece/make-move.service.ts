@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { stringify } from 'querystring';
-import { Pawn } from './chessPieces/Pawn';
+import { Pawn } from '../chessPieces/Pawn';
 
 @Injectable({
   providedIn: 'root'
@@ -8,4 +8,8 @@ import { Pawn } from './chessPieces/Pawn';
 export class MakeMoveService {
 
   constructor() { }
+
+  static canMakeMove(proposedMove: ProposedMove) {
+
+  }
 }
