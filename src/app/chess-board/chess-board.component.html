@@ -1,9 +1,10 @@
+<div></div>
 <table class="chessBoard">
 
   <tr class="row" *ngFor="let r of nRows">
 
     <td class="col" *ngFor="let c of nCols">
-        <chess-square #chessSquare id="{{c + r}}" (click)="clickedSquare(chessSquare)"></chess-square>
+        <chess-square id="{{c + r}}" (pieceClicked)="clickedSquare($event)"></chess-square>
     </td>
 
   </tr>

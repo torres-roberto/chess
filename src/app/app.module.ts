@@ -7,16 +7,18 @@ import { ChessBoardComponent } from './chess-board/chess-board.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SquareComponent,
-    ChessBoardComponent,
-    InstructionsComponent    
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      SquareComponent,
+      ChessBoardComponent,
+      InstructionsComponent,
+   ],
+   imports: [
+      BrowserModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
