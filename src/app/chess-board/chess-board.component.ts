@@ -66,7 +66,7 @@ export class ChessBoardComponent implements OnInit {
     } else if (this.isMove(chessPiece.color)) {
       this.pieceWasSelected = false;
       this.whosTurn = this.whosTurn === 'white' ? 'black' : 'white';
-      console.log('this is a move');
+      
     }
     console.log(chessPiece);
   }
