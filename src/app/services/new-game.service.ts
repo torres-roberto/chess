@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Pawn } from './chessPieces/Pawn';
-import { DefaultPiece } from './chessPieces/DefaultPiece';
-import { Knight } from './chessPieces/Types/Knight';
-import { Bishop } from './chessPieces/Types/Bishop';
-import { Rook } from './chessPieces/Types/Rook';
-import { Queen } from './chessPieces/Types/Queen';
-import { King } from './chessPieces/Types/King';
+import { Pawn } from '../chessPieces/Pawn';
+import { DefaultPiece } from '../chessPieces/DefaultPiece';
+import { Knight } from '../chessPieces/Types/Knight';
+import { Bishop } from '../chessPieces/Types/Bishop';
+import { Rook } from '../chessPieces/Types/Rook';
+import { Queen } from '../chessPieces/Types/Queen';
+import { King } from '../chessPieces/Types/King';
 
 @Injectable({
   providedIn: 'root'
