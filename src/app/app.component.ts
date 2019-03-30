@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Chess';
   whosTurn = 'white';
+
+  switchPlayer(playerTurn) {
+    this.whosTurn = playerTurn;
+  }
 }

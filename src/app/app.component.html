@@ -3,8 +3,8 @@
   <h1>
     Play {{ title }}!
   </h1>
-  <chess-board [player]="whosTurn"></chess-board>
-  <instructions [player]="whosTurn"></instructions> 
+  <chess-board [player]="whosTurn" (moveMade)="switchPlayer($event)"></chess-board>
+  <instructions [player]="whosTurn"></instructions>
 </div>
 
 

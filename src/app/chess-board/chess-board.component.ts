@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { Players } from '../rules/players';
 import { RefereeService } from '../services/referee.service';
 
@@ -14,6 +14,7 @@ export class ChessBoardComponent implements OnInit {
   pieceWasSelected = false;
 
   @Input() player: string;
+  @Output() moveMade = new EventEmitter<string>();
 
   nCols: string[];
   nRows: string[];
@@ -38,6 +39,7 @@ export class ChessBoardComponent implements OnInit {
       console.log('valid move');
       this.pieceWasSelected = false;
       this.whosTurn = this.whosTurn === 'white' ? 'black' : 'white';
+      this.moveMade.emit(this.whosTurn);
       this.referee.moveMade.next({piece: {...this.selectedPiece}, from: this.selectedPieceId, to: chessPiece.currentPosition});
     }
   }
