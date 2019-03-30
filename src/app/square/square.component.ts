@@ -1,3 +1,5 @@
+import { DefaultPiece } from './../chessPieces/DefaultPiece';
+import { RefereeService } from './../services/referee.service';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NewGameService } from '../new-game.service';
 import { Referee } from '../referee';
@@ -13,27 +15,40 @@ export class SquareComponent implements OnInit {
   @Input() id: string;
   @Input() piece: string[] = ['square'];
 
-  @Output() pieceClicked= new EventEmitter<ChessPiece>();
+  @Output() pieceClicked = new EventEmitter<ChessPiece>();
 
   chessPiece: ChessPiece;
   selected: boolean = false;
 
-  constructor(private newGameService: NewGameService, private rules: RulesService) {
+  constructor(private newGameService: NewGameService,
+              private rules: RulesService,
+              private referee: RefereeService) {
   }
 
   ngOnInit() {
-    this.chessPiece = this.newGameService.getInitialPiece(this.id);     
+    this.chessPiece = this.newGameService.getInitialPiece(this.id);
     if (this.chessPiece) {
-      this.piece.push(this.chessPiece.name)
+      this.piece.push(this.chessPiece.name);
       this.piece.push(this.chessPiece.color);
+      this.referee.moveMade.subscribe(move => {
+        if (move.to === this.id) {
+          console.log(move.piece);
+          this.piece = ['square', move.piece.name, move.piece.color];
+          const chessPiece = {...move.piece};
+          chessPiece.currentPosition = move.to;
+          this.chessPiece = chessPiece;
+        }
+
+        if (move.from === this.id) {
+          console.log('erasing piece from old square');
+          this.chessPiece = new DefaultPiece(this.id);
+          this.piece = ['square', this.chessPiece.name, this.chessPiece.color];
+        }
+      });
     }
   }
 
   clickedSquare() {
-    //console.log(`User clicked on chess square ${this.id}, ${this.piece}`);
     this.pieceClicked.emit(this.chessPiece);
-    // if (this.rules.canSelect(this.chessPiece)) {
-      
-    // }
   }
 }

@@ -1,6 +1,6 @@
 interface ChessPiece {
     image: string;
-    currentPosition: string;    
+    currentPosition: string;
     name: string;
     color: string;
 }
