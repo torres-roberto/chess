@@ -10,7 +10,7 @@ import { RefereeService } from '../services/referee.service';
 })
 export class ChessBoardComponent implements OnInit {
   selectedSquare: ChessPosition;
-  whosTurn: string = 'white';
+  whosTurn = 'white';
   pieceWasSelected = false;
 
   @Input() player: string;
@@ -45,7 +45,7 @@ export class ChessBoardComponent implements OnInit {
   }
 
   private isSelection(playerColor) {
-    return !this.pieceWasSelected && this.whosTurn === playerColor;
+    return this.whosTurn === playerColor;
   }
 
   private isMove(playerColor) {

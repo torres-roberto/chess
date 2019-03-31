@@ -9,7 +9,3 @@
 .black {
   filter: invert(100%)
 }
-
-.selected {
-  border: dashed red 1px;
-}
