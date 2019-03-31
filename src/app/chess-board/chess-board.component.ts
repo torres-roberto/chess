@@ -30,7 +30,7 @@ export class ChessBoardComponent implements OnInit {
   }
 
   public clickedSquare(chessPiece: ChessPiece) {
-    if (this.isSelection(chessPiece.color)) {
+    if (this.isSelection(chessPiece)) {
       this.selectedPiece = {...chessPiece};
       console.log('is selection');
       this.pieceWasSelected = true;
@@ -44,8 +44,8 @@ export class ChessBoardComponent implements OnInit {
     }
   }
 
-  private isSelection(playerColor) {
-    return this.whosTurn === playerColor;
+  private isSelection(chessPiece: ChessPiece) {
+    return this.whosTurn === chessPiece.color && this.referee.canSelect(chessPiece);
   }
 
   private isMove(playerColor) {
