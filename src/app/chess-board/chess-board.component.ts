@@ -18,7 +18,6 @@ export class ChessBoardComponent implements OnInit {
 
   nCols: string[];
   nRows: string[];
-  selectedPieceId: string;
   selectedPiece: ChessPiece;
 
   constructor(private referee: RefereeService) { }
@@ -32,15 +31,15 @@ export class ChessBoardComponent implements OnInit {
   public clickedSquare(chessPiece: ChessPiece) {
     if (this.isSelection(chessPiece)) {
       this.selectedPiece = {...chessPiece};
-      console.log('is selection');
       this.pieceWasSelected = true;
-      this.selectedPieceId = chessPiece.currentPosition;
-    } else if (this.isMove(chessPiece.color)) {
-      console.log('valid move');
+    } else if (this.isMove(chessPiece)) {
       this.pieceWasSelected = false;
       this.whosTurn = this.whosTurn === 'white' ? 'black' : 'white';
       this.moveMade.emit(this.whosTurn);
-      this.referee.moveMade.next({piece: {...this.selectedPiece}, from: this.selectedPieceId, to: chessPiece.currentPosition});
+      this.referee.moveMade.next({
+        piece: {...this.selectedPiece},
+        from: this.selectedPiece.currentPosition,
+        to: chessPiece.currentPosition});
     }
   }
 
@@ -48,7 +47,9 @@ export class ChessBoardComponent implements OnInit {
     return this.whosTurn === chessPiece.color && this.referee.canSelect(chessPiece);
   }
 
-  private isMove(playerColor) {
-    return this.pieceWasSelected && this.whosTurn !== playerColor;
+  private isMove(chessPiece: ChessPiece) {
+    return this.pieceWasSelected &&
+      this.whosTurn !== chessPiece.color &&
+      this.referee.canMove(this.selectedPiece, chessPiece.currentPosition);
   }
 }
