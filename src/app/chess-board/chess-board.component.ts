@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, AfterViewInit, EventEmitter, Output } from '@angular/core';
-import { Players } from '../rules/players';
+import { MakeMoveService } from './../movePiece/make-move.service';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { RefereeService } from '../services/referee.service';
 
 @Component({
@@ -20,7 +20,8 @@ export class ChessBoardComponent implements OnInit {
   nRows: string[];
   selectedPiece: ChessPiece;
 
-  constructor(private referee: RefereeService) { }
+  constructor(private referee: RefereeService,
+              private makeMove: MakeMoveService) { }
 
   ngOnInit() {
     this.nCols = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -36,7 +37,7 @@ export class ChessBoardComponent implements OnInit {
       this.pieceWasSelected = false;
       this.whosTurn = this.whosTurn === 'white' ? 'black' : 'white';
       this.moveMade.emit(this.whosTurn);
-      this.referee.moveMade.next({
+      this.makeMove.moveMade.next({
         piece: {...this.selectedPiece},
         from: this.selectedPiece.currentPosition,
         to: chessPiece.currentPosition});
@@ -44,7 +45,7 @@ export class ChessBoardComponent implements OnInit {
   }
 
   private isSelection(chessPiece: ChessPiece) {
-    return this.whosTurn === chessPiece.color && this.referee.canSelect(chessPiece);
+    return this.whosTurn === chessPiece.color;
   }
 
   private isMove(chessPiece: ChessPiece) {

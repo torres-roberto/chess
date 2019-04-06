@@ -1,8 +1,10 @@
+import { ChessboardService } from './../chessboard.service';
 import { DefaultPiece } from './../chessPieces/DefaultPiece';
 import { RefereeService } from './../services/referee.service';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NewGameService } from '../services/new-game.service';
 import { RulesService } from '../rules/rules.service';
+import { MakeMoveService } from '../movePiece/make-move.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -20,16 +22,17 @@ export class SquareComponent implements OnInit {
   selected = false;
 
   constructor(private newGameService: NewGameService,
-              private rules: RulesService,
-              private referee: RefereeService) {
+              private chessBoard: ChessboardService,
+              private makeMove: MakeMoveService) {
   }
 
   ngOnInit() {
     this.chessPiece = this.newGameService.getInitialPiece(this.id);
+    this.chessBoard.adjustChessBoard({...this.chessPiece});
     if (this.chessPiece) {
       this.piece.push(this.chessPiece.name);
       this.piece.push(this.chessPiece.color);
-      this.referee.moveMade.subscribe(move => this.moveMadeHandler(move));
+      this.makeMove.moveMade.subscribe(move => this.moveMadeHandler(move));
     }
   }
 

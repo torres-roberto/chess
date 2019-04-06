@@ -8,28 +8,32 @@ import { OutOfBoundsRule } from '../rules/outofbounds.rule';
   providedIn: 'root'
 })
 export class RefereeService {
-  moveMade: Subject<{piece: ChessPiece, from, to}> = new Subject();
+  // moveMade: Subject<{piece: ChessPiece, from, to}> = new Subject();
 
-  constructor() { }
+  constructor(private possibleMoves: PossibleMoves) { }
 
   private getRules(chessPiece: ChessPiece): Rule[] {
     switch(chessPiece.name) {
       case 'knight':
         return [
-          new OutOfBoundsRule(chessPiece)
+          //new OutOfBoundsRule()
         ];
+      case 'pawn':
+        return [
+          //new OutOfBoundsRule(chessPiece)
+        ]
       default:
         return [];
     }
   }
 
-  canSelect(chessPiece: ChessPiece): boolean {
-    const rules = this.getRules(chessPiece);
-    return rules.some((r: Rule) => r.followsRule());
-  }
+  // canSelect(chessPiece: ChessPiece): boolean {
+  //   const rules = this.getRules(chessPiece);
+  //   return !rules.some((r: Rule) => !r.followsRule());
+  // }
 
   canMove(chessPiece: ChessPiece, destination: string) {
-    const possibleMoves = PossibleMoves.getPossibleMoves(chessPiece);
+    const possibleMoves = this.possibleMoves.getPossibleMoves(chessPiece);
     return possibleMoves.includes(destination);
   }
 }

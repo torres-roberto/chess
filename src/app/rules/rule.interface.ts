@@ -1,4 +1,4 @@
 
 export interface Rule {
-  followsRule(): boolean;
+  followsRule(chessPiece: ChessPiece): boolean;
 }

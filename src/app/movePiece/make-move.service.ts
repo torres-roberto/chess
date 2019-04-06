@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { stringify } from 'querystring';
 import { Pawn } from '../chessPieces/Pawn';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MakeMoveService {
+  moveMade = new Subject<{from, to, piece}>();
 
   constructor() { }
 
@@ -24,10 +26,10 @@ export class MakeMoveService {
       console.log(`Must select a position with a [${proposedMove.situation.whosTurn}] piece`);
       return true;
     }
-    return true;        
+    return true;
   }
 
-  private static isValidTarget(proposedMove: Move): boolean {    
+  private static isValidTarget(proposedMove: Move): boolean {
     return true;
   }
 }

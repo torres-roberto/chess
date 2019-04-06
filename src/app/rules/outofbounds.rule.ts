@@ -3,10 +3,10 @@ import { allPositions } from '../movePiece/position';
 import { PossibleMoves } from './possible-moves/possibleMoves';
 
 export class OutOfBoundsRule implements Rule {
-  constructor(private chessPiece: ChessPiece) {}
+  constructor(private possibleMoves: PossibleMoves) {}
 
-  followsRule(): boolean {
-    const possibleMoves = PossibleMoves.getPossibleMoves(this.chessPiece);
+  followsRule(chessPiece): boolean {
+    const possibleMoves = this.possibleMoves.getPossibleMoves(chessPiece);
     return allPositions.some(p => possibleMoves.includes(p));
   }
 }
