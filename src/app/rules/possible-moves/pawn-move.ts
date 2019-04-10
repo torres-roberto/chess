@@ -17,6 +17,12 @@ export class PawnMoves {
 
     const possibleMoves = [];
 
+    if ((chessPiece.currentPosition[1] === '2' && chessPiece.color === 'black' ||
+        chessPiece.currentPosition[1] === '7' && chessPiece.color === 'white') &&
+      this.isValidPosition(chessPiece.currentPosition[0] + (rowDestination + direction))) {
+        possibleMoves.push(chessPiece.currentPosition[0] + (rowDestination + direction));
+    }
+
     if (this.isValidPosition(straightAhead) &&
         this.isVacantPosition(straightAhead)
     ) {
