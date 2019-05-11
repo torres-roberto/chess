@@ -3,7 +3,7 @@ export class DefaultPiece implements ChessPiece {
     name = 'empty';
     color = '';
 
-    constructor(currentPosition: string) { 
+    constructor(currentPosition: string) {
         this.currentPosition = currentPosition;
     }
 

@@ -10,7 +10,7 @@ export class KingMoves {
 
   getPossibleMoves(chessPiece: ChessPiece): string[] {
     function getNextPositionOnPath(domain: number, range: number) {
-      return StraightPath.getNextPositionOnPath(chessPiece.currentPosition, domain, range)
+      return StraightPath.getNextPositionOnPath(chessPiece.currentPosition, domain, range);
     }
 
     const up = getNextPositionOnPath(0, 1);

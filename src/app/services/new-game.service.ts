@@ -38,16 +38,16 @@ export class NewGameService {
 
   private static isQueen(chessPos: string): boolean {
     return (chessPos[0] === 'd' && chessPos[1] === '1') ||
-           (chessPos[0] === 'd' && chessPos[1] === '8')
+           (chessPos[0] === 'd' && chessPos[1] === '8');
   }
 
   private static isKing(chessPos: string): boolean {
     return (chessPos[0] === 'e' && chessPos[1] === '1') ||
-           (chessPos[0] === 'e' && chessPos[1] === '8')
+           (chessPos[0] === 'e' && chessPos[1] === '8');
   }
 
   getInitialPiece (chessPos: string): ChessPiece  {
-    let color = chessPos[1] < '3' ? 'black' : 'white';
+    const color = chessPos[1] < '3' ? 'black' : 'white';
 
     if (NewGameService.isPawn(chessPos)) {
       return new Pawn(chessPos, color);

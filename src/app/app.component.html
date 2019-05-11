@@ -4,7 +4,7 @@
     Play {{ title }}!
   </h1>
   <chess-board [player]="whosTurn" (moveMade)="switchPlayer($event)"></chess-board>
-  <instructions [player]="whosTurn"></instructions>
+  <chess-instructions [player]="whosTurn"></chess-instructions>
 </div>
 
 

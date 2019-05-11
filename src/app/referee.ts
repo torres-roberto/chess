@@ -1,5 +1,5 @@
 export class Referee {
-    static alreadySelectedPiece: boolean = false;
+    static alreadySelectedPiece = false;
     static pieces = {};
 
     static CanSelectPiece (): boolean {
@@ -11,7 +11,7 @@ export class Referee {
             this.alreadySelectedPiece = false;
             return;
         }
-        this.alreadySelectedPiece = true;        
+        this.alreadySelectedPiece = true;
     }
 
     isMyTurn(): boolean {

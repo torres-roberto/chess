@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WhosTurnService {
-  private whosTurn: string = 'white';
+  private whosTurn = 'white';
 
   public makeMove() {
     if (this.whosTurn === 'white') {

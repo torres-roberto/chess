@@ -15,7 +15,7 @@ export class ChessboardService {
       this.makeMove.moveMade.subscribe(move => {
       this.chessBoard.set(move.to, {...move.piece});
       this.chessBoard.set(move.from, new DefaultPiece(move.from));
-    })
+    });
 
   }
 
