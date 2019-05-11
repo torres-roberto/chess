@@ -19,7 +19,9 @@ export class PawnMoves {
 
     if ((chessPiece.currentPosition[1] === '2' && chessPiece.color === 'black' ||
         chessPiece.currentPosition[1] === '7' && chessPiece.color === 'white') &&
-      this.isValidPosition(chessPiece.currentPosition[0] + (rowDestination + direction))) {
+      this.isValidPosition(chessPiece.currentPosition[0] + (rowDestination + direction)) &&
+      this.isVacantPosition(chessPiece.currentPosition[0] + (rowDestination + direction)) &&
+      this.isVacantPosition(chessPiece.currentPosition[0] + rowDestination)) {
         possibleMoves.push(chessPiece.currentPosition[0] + (rowDestination + direction));
     }
 
